@@ -1,7 +1,7 @@
 <?php
  
 
-class LaporanController extends \BaseController {
+class TestingController extends \BaseController {
 
 	/**
 	 * Display a listing of the resource.
@@ -10,7 +10,12 @@ class LaporanController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+		$test = DB::table('laporan_kas_harian')
+        ->join('akun', 'laporan_kas_harian.akun_id', '=', 'akun.id')
+        ->select('laporan_kas_harian.no_bukti', 'laporan_kas_harian.tanggal', 'akun.no_akun', 'akun.nama_akun' , 'laporan_kas_harian.debet', 'laporan_kas_harian.kredit', 'laporan_kas_harian.keterangan')
+ 	    
+        ->get();
+        var_dump($test);
 	}
 
 
@@ -54,6 +59,7 @@ class LaporanController extends \BaseController {
 				}
 			
 			$laporan->keterangan    = Input::get('keterangan');
+			
 			// $laporan->no_akun       = Input::get('no_akun');
 			// $laporan->nama_akun     = Input::get('nama_akun');
 			

@@ -61,7 +61,9 @@
 			<li><a href="widget"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Widgets</a></li>
 			<li><a href="chart"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> Charts</a></li>
 			<li><a href="laporan"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Kertas Kerja</a></li>
+			<li><a href="list-akun"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> List Akun</a></li>
 			<li><a href="laporan-input"><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg> Form Laporan</a></li>
+			<li><a href="formakun"><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg> Form Akun</a></li>
 			
 		</ul>
 </div>
