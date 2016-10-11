@@ -46,7 +46,7 @@ class UserController extends \BaseController {
 		$user->password  = Hash::make(Input::get('password'));
 		$user->no_hp = Input::get('no_hp');
 		$user->alamat = Input::get('alamat');	
-		$user->tipeuser  =  Input::get('tipe');	
+		$user->tipeuser  = Hash::make(Input::get('tipeuser '));
 		$user->save();
 
 		return Redirect::to('login')->with('pesan_regis', 'Registrasi berhasil!');

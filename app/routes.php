@@ -113,9 +113,8 @@ Route::post('store', 'UserController@store');
 
 
 //Laporan
-Route::get('testing',array('uses' => 'TestingController@index'));
 
-	
+
 
 
 
@@ -123,8 +122,14 @@ Route::get('laporan', function(){
 
 	if (Auth::check())
 		{
+			$searchBy = array(
+			'no_bukti'=>'No Bukti',
+			'tanggal'=>'Tanggal',
+			'no_akun'=>'No Akun',
+			'nama_akun'=>'Nama Akun');
 			$laporan = Laporan::all();
-	 		return View::make('listdata')->with('datalaporan', $laporan);
+	 		return View::make('listdata', compact('searchBy'))
+				->with('datalaporan', $laporan);
 		}
 	
 	else{
@@ -145,7 +150,6 @@ Route::get('laporan-input', function()
 	}
  
 });
-
 
 Route::get('laporan/search', 'LaporanController@search');
 Route::post('laporan/insert', 'LaporanController@store');
@@ -172,51 +176,6 @@ Route::get('input_data_transaksi', function()
 });
 
 //
-
-
-//akun
-
-
-Route::get('formakun', function()
-{
-
-	if (Auth::check())
-		{
-			return View::make('akun');
-		}
-	
-	else{
-		 return Redirect::to('login')->with('belum_login', 'Anda Harus Login');
-	}
- 
-});
-
-
-Route::get('list-akun', function(){
-
-	if (Auth::check())
-		{
-			$akun = Akun::all();
-	 		return View::make('ListAkun')->with('listakun', $akun);
-		}
-	
-	else{
-		 return Redirect::to('login')->with('belum_login', 'Anda Harus Login');
-	}
-});
-
-Route::post('akun/insert', 'AkunController@store');
-Route::get('akun/edit/{id_akun}', 'AkunController@edit');
-Route::post('akun/update', 'AkunController@update');
-Route::get('akun/delete/{id}', 'AkunController@delete');
-
-Route::get('export-akun', array('uses' => 'AkunController@export', 'as' => 'ExportAkun'));
-
-//
-
-
-
-
 //sentry
 
 // Route::get('dashboard', function()

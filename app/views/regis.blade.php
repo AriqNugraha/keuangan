@@ -49,8 +49,8 @@
 				  {{Form::label('alamat', 'Alamat') }} 
 				  {{Form::text('alamat', '', array('class' => 'form-control'))}} 
 
-				  {{Form::label('tipe ', 'Type User') }} 
-				 {{Form::text('tipe', '', array('class' => 'form-control'))}} 
+				  {{Form::label('tipeuser ', 'Type') }} 
+				  {{Form::text('tipeuser ', '', array('class' => 'form-control'))}} 
 				  <br>    
 				  {{Form::submit('Register', array('class' => 'btn btn-primary')) }} 
 				 {{ Form::close() }} 

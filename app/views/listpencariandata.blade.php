@@ -18,27 +18,9 @@
              <div class="alert alert-success">{{ Session::get('pesan_hapus') }}</div>
   @endif
 
-<div class="col-md-4">
-    {{ link_to('laporan-input', 'Tambah',array ( 'class' => 'btn btn-info custom-btn'))}}
-    <a href="{{URL::route('ExportLaporan')}}"><button class="btn btn-info custom-btn">Export</button></a>
-    
-</div>
+  {{ link_to('laporan-input', 'Tambah',array ( 'class' => 'btn btn-info custom-btn'))}}
 
-<form role="search" action="{{ URL::action('LaporanController@search') }}" method="get">
-<div class="col-md-5">
-  {{ Form::label('search by', 'Search By') }}
-  {{ Form::select('searchBy', $searchBy) }}
-</div>
-
-<div class="col-md-3">
-    
-      <div class="form-group" >
-        <input type="text" id="katakunci" name="katakunci" class="form-control custom-src" placeholder="Search">
-        <!-- <button type="submit" class="btn"><i class="icon-search"></i></button> -->
-      </div>
-    
- </div>
- </form>
+   <a href="{{URL::route('ExportLaporan')}}"><button class="btn btn-info custom-btn">Export</button></a>
 
  <table class="table">
     <tr>
@@ -55,7 +37,8 @@
 <?php
  $i = 1;
  ?>
- @foreach($datalaporan as $laporan)
+ 
+ @foreach($searchResult as $laporan)
 
    
       <tr>
@@ -75,6 +58,7 @@
     $i++;
     ?>
     @endforeach
+    
    
  </table>
 

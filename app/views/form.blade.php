@@ -28,21 +28,21 @@
 
  
 
- {{Form::label('no_akun', 'No Akun') }}
+ {{Form::label('noperk', 'No Perkiraan') }}
 
- {{Form::text('no_akun', '', array('class' => 'form-control' , 'required' => 'required'))}}
+ {{Form::text('noperk', '', array('class' => 'form-control' , 'required' => 'required'))}}
 
- {{Form::label('nama_akun', 'Nama Akun') }}
+ {{Form::label('akun', 'Kode Akun') }}
 
- {{Form::text('nama_akun', '', array('class' => 'form-control' , 'required' => 'required'))}}
+ {{Form::text('akun', '', array('class' => 'form-control' , 'required' => 'required'))}}
 
  {{Form::label('debet', 'Debet') }}
 
- {{Form::text('debet', '', array('class' => 'form-control'))}}
+ {{Form::text('debet', '', array('class' => 'form-control', 'required' => 'required'))}}
 
  {{Form::label('kredit', 'Kredit') }}
 
- {{Form::text('kredit', '', array('class' => 'form-control'))}}
+ {{Form::text('kredit', '', array('class' => 'form-control' , 'required' => 'required'))}}
 
  {{Form::label('keterangan', 'Keterangan') }}
 
