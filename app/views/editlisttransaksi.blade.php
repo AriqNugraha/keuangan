@@ -1,3 +1,4 @@
+
 @extends('layout')
 
 @section('content')
@@ -30,7 +31,7 @@
 
 		 {{Form::label('nominal', 'Nominal') }}
 
-		 {{Form::textarea('nominal', $datatransaksi->nominal , array('class' => 'form-control'))}}
+		 {{Form::text('nominal', $datatransaksi->nominal , array('class' => 'form-control'))}}
 
 		 {{Form::label('tipe_transaksi', 'Tipe') }}
 
@@ -42,3 +43,6 @@
 
  
 @stop
+
+    
+

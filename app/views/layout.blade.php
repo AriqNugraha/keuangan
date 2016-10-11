@@ -58,20 +58,14 @@
 		</form>
 		<ul class="nav menu">
 			<li class="active"><a href="index"><svg class="glyph stroked dashboard-dial"><use xlink:href="#stroked-dashboard-dial"></use></svg> Dashboard</a></li>
-			<li><a href="/widget"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Widgets</a></li>
-			<li><a href="/chart"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> Charts</a></li>
-			<li><a href="/laporan"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Laporan</a></li>
-			<li><a href="/ListTransaksi"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> List Transaksi</a></li>
+			<li><a href="widget"><svg class="glyph stroked calendar"><use xlink:href="#stroked-calendar"></use></svg> Widgets</a></li>
+			<li><a href="chart"><svg class="glyph stroked line-graph"><use xlink:href="#stroked-line-graph"></use></svg> Charts</a></li>
+			<li><a href="laporan"><svg class="glyph stroked table"><use xlink:href="#stroked-table"></use></svg> Kertas Kerja</a></li>
+			<li><a href="laporan-input"><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg> Form Laporan</a></li>
 			
-
-
-			<li><a href="input"><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg> Form Input Laporan</a></li>
-			<li><a href="input_data_transaksi"><svg class="glyph stroked pencil"><use xlink:href="#stroked-pencil"></use></svg> Form Input Transaksi</a></li>
-         
-
 		</ul>
 </div>
-<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+<div>
 	@yield('content');
 </div>
 	<script src="/assets/js/jquery-1.11.1.min.js"></script>

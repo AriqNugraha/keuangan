@@ -1,7 +1,5 @@
 <?php
-
 class InputTransaksiController extends \BaseController {
-
 	/**
 	 * Display a listing of the resource.
 	 *
@@ -11,8 +9,6 @@ class InputTransaksiController extends \BaseController {
 	{
 		//
 	}
-
-
 	/**
 	 * Show the form for creating a new resource.
 	 *
@@ -23,7 +19,6 @@ class InputTransaksiController extends \BaseController {
 		return View::make('form');
 	}
 	
-
 	/**
 	 * Store a newly created resource in storage.
 	 *
@@ -31,20 +26,14 @@ class InputTransaksiController extends \BaseController {
 	 */
 	public function store()
 	{
-		
-
-		
 		$transaksi = new DataTransaksi();
 		$transaksi->no_bukti = Input::get('no_bukti');
 		$transaksi->tanggal = Input::get('tanggal');
 		$transaksi->nominal  = Input::get('nominal');
 		$transaksi->tipe_transaksi = Input::get('tipe_transaksi');	
 		$transaksi->save();
-
 		return Redirect::to('ListTransaksi')->with('pesan', 'data berhasil masuk!');
 	}
-
-
 	/**
 	 * Display the specified resource.
 	 *
@@ -56,8 +45,6 @@ class InputTransaksiController extends \BaseController {
 		$datatransaksi = DataTransaksi::all();
 		return View::make('ListTransaksi',compact('datatransaksi'));
 	}
-
-
 	/**
 	 * Show the form for editing the specified resource.
 	 *
@@ -70,8 +57,6 @@ class InputTransaksiController extends \BaseController {
 		# Tampilkan view
 		return View::make('editlisttransaksi', compact('datatransaksi'));
 	}
-
-
 	/**
 	 * Update the specified resource in storage.
 	 *
@@ -90,8 +75,6 @@ class InputTransaksiController extends \BaseController {
 			# Kehalaman beranda dengan pesan sukses
 			return Redirect::route('show')->withPesan('data berhasil diubah.');
 	}
-
-
 	/**
 	 * Remove the specified resource from storage.
 	 *
@@ -105,6 +88,4 @@ class InputTransaksiController extends \BaseController {
 		# Kembali kehalaman yang sama dengan pesan sukses
 		return Redirect::back()->withPesan('data berhasil dihapus.');
 	}
-
-
 }

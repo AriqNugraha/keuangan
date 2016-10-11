@@ -26,13 +26,15 @@
 
   <input name="tanggal" class="form-control date-picker" id="tanggal" data-date-format="yyyy-mm-dd" type="text" required="required" >
 
- {{Form::label('keterangan', 'Keterangan') }}
-
- {{Form::textarea('keterangan', '', array('class' => 'form-control' , 'required' => 'required'))}}
+ 
 
  {{Form::label('noperk', 'No Perkiraan') }}
 
  {{Form::text('noperk', '', array('class' => 'form-control' , 'required' => 'required'))}}
+
+ {{Form::label('akun', 'Kode Akun') }}
+
+ {{Form::text('akun', '', array('class' => 'form-control' , 'required' => 'required'))}}
 
  {{Form::label('debet', 'Debet') }}
 
@@ -41,6 +43,10 @@
  {{Form::label('kredit', 'Kredit') }}
 
  {{Form::text('kredit', '', array('class' => 'form-control' , 'required' => 'required'))}}
+
+ {{Form::label('keterangan', 'Keterangan') }}
+
+ {{Form::textarea('keterangan', '', array('class' => 'form-control' , 'required' => 'required'))}}
 
  {{Form::submit('Submit', array('class' => 'btn btn-primary custom-btn')) }}
 

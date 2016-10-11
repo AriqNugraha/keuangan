@@ -9,6 +9,7 @@
 				<li class="active"></li>
 			</ol>
 		</div><!--/.row-->
+		
 		<div class="row">
 			<div class="col-lg-12">
 				<h1 class="page-header">Form Input Data Transaksi</h1>
@@ -19,22 +20,22 @@
 
  {{Form::label('no_bukti', 'No Bukti') }}
 
- {{Form::text('no_bukti', '', array('class' => 'form-control'))}}
+ {{Form::text('no_bukti', '', array('class' => 'form-control' ,'required' => 'required'))}}
 
  {{Form::label('tanggal', 'Tanggal') }}
 
- {{Form::text('tanggal', '', array('class' => 'form-control'))}}
+ {{Form::text('tanggal', '', array('class' => 'form-control' , 'required' => 'required'))}}
 
  {{Form::label('nominal', 'Nominal') }}
 
- {{Form::text('nominal', '', array('class' => 'form-control'))}}
+ {{Form::text('nominal', '', array('class' => 'form-control' , 'required' => 'required'))}}
 
  {{Form::label('tipe_transaksi', 'Tipe') }}
 
- {{Form::text('tipe_transaksi', '', array('class' => 'form-control'))}}
+ {{Form::text('tipe_transaksi', '', array('class' => 'form-control' , 'required' => 'required'))}}
 
- {{Form::submit('Send', array('class' => 'btn btn-primary custom-btn')) }}
+ {{Form::submit('submit', array('class' => 'btn btn-primary custom-btn')) }}
   
     
- {{ Form::close()}}
-
+{{ Form::close()}}
+@stop

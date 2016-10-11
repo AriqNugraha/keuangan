@@ -24,9 +24,7 @@
 				<div class="panel-heading">Register</div>
 				<div class="panel-body">
 					
-				 @if(Session::has('pesan'))
-				  <div class="alert alert-success">{{ Session::get('pesan') }}</div>
-				  @endif
+				 
 
 				  {{Form::open(array('action' => 'UserController@store')) }} 
 

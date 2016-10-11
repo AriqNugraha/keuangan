@@ -31,6 +31,14 @@
 					   <div class="alert alert-success">{{ Session::get('pesan_logout') }}</div>
 					 @endif
 
+					 @if(Session::has('pesan_regis'))
+				  <div class="alert alert-success">{{ Session::get('pesan_regis') }}</div>
+				  @endif
+
+				   @if(Session::has('belum_login'))
+				  <div class="alert alert-danger">{{ Session::get('belum_login') }}</div>
+				  @endif
+
 					 
 					 
 					{{Form::open(array('action' => 'UserController@authenticate')) }}

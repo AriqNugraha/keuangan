@@ -49,7 +49,7 @@ class UserController extends \BaseController {
 		$user->tipeuser  = Hash::make(Input::get('tipeuser '));
 		$user->save();
 
-		return Redirect::to('login')->with('pesan', 'Registrasi berhasil!');
+		return Redirect::to('login')->with('pesan_regis', 'Registrasi berhasil!');
 	}
 
 

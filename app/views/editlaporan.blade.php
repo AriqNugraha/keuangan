@@ -36,6 +36,9 @@
 
 		 {{Form::text('noperk', $laporan->no_perk , array('class' => 'form-control'))}}
 
+		 {{Form::label('akun', 'Kode Akun') }}
+		 {{Form::text('akun', $laporan->kode_akun , array('class' => 'form-control'))}}
+
 		 {{Form::label('debet', 'Debet') }}
 
 		 {{Form::text('debet', $laporan->debet , array('class' => 'form-control'))}}

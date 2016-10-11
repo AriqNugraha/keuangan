@@ -16,37 +16,93 @@ Route::get('/', function()
 	return View::make('hello');
 });
 
-Route::get('index', function()
+
+
+
+
+
+
+Route::get('/', function()
 {
- return View::make('index');
+	return View::make('login');
 });
 
-Route::get('input', function()
+
+ // Route::get ('debug', function()
+ // {
+ // 	echo  Auth::user()->email;
+ // 	echo Auth::check();
+ // 	exit();
+ // });
+
+Route::get('index', function()
 {
- return View::make('form');
+ if (Auth::check())
+		{
+			return View::make('index');
+		}
+	
+	else{
+		 return Redirect::to('login')->with('belum_login', 'Anda Harus Login');
+	}
 });
+
+
 
 
 Route::get('widget', function()
 {
- return View::make('widget');
+ if (Auth::check())
+		{
+			return View::make('widget');
+		}
+	
+	else{
+		 return Redirect::to('login')->with('belum_login', 'Anda Harus Login');
+	}
 });
 
 Route::get('chart', function()
 {
- return View::make('charts');
+ if (Auth::check())
+		{
+			return View::make('charts');
+		}
+	
+	else{
+		 return Redirect::to('login')->with('belum_login', 'Anda Harus Login');
+	}
 });
+
+
+
+
 
 Route::get('form-transaksi', function()
 {
- return View::make('transaksi');
+ if (Auth::check())
+		{
+			return View::make('transaksi');
+		}
+	
+	else{
+		 return Redirect::to('login')->with('belum_login', 'Anda Harus Login');
+	}
 });
 
 Route::get('list-transaksi', function()
 {
- return View::make('ListTransaksi');
+ if (Auth::check())
+		{
+			return View::make('ListTransaksi');
+		}
+	
+	else{
+		 return Redirect::to('login')->with('belum_login', 'Anda Harus Login');
+	}
 });
 
+	
 //Route::get('input', array('uses'=> 'InputController@create'));
 
 Route::get('login', 'UserController@login');
@@ -57,19 +113,51 @@ Route::post('store', 'UserController@store');
 
 
 //Laporan
-Route::get('laporan', function(){
-	 $laporan = Laporan::all();
-	 return View::make('listdata')->with('datalaporan', $laporan);
 
+
+
+
+
+Route::get('laporan', function(){
+
+	if (Auth::check())
+		{
+			$searchBy = array(
+			'no_bukti'=>'No Bukti',
+			'tanggal'=>'Tanggal',
+			'no_akun'=>'No Akun',
+			'nama_akun'=>'Nama Akun');
+			$laporan = Laporan::all();
+	 		return View::make('listdata', compact('searchBy'))
+				->with('datalaporan', $laporan);
+		}
+	
+	else{
+		 return Redirect::to('login')->with('belum_login', 'Anda Harus Login');
+	}
 });
 
+Route::get('laporan-input', function()
+{
 
+	if (Auth::check())
+		{
+			return View::make('form');
+		}
+	
+	else{
+		 return Redirect::to('login')->with('belum_login', 'Anda Harus Login');
+	}
+ 
+});
+
+Route::get('laporan/search', 'LaporanController@search');
 Route::post('laporan/insert', 'LaporanController@store');
 Route::get('laporan/edit/{id}', 'LaporanController@edit');
 Route::post('laporan/update', 'LaporanController@update');
 Route::get('laporan/delete/{id}', 'LaporanController@delete');
 
-
+Route::get('export', array('uses' => 'LaporanController@export', 'as' => 'ExportLaporan'));
 //
 
 //transaksi 
