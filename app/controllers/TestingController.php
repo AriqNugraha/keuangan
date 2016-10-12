@@ -15,7 +15,10 @@ class TestingController extends \BaseController {
         ->select('laporan_kas_harian.no_bukti', 'laporan_kas_harian.tanggal', 'akun.no_akun', 'akun.nama_akun' , 'laporan_kas_harian.debet', 'laporan_kas_harian.kredit', 'laporan_kas_harian.keterangan')
  	    
         ->get();
-        var_dump($test);
+
+       return View::make('ListTest')->with('test', $test);
+
+        
 	}
 
 

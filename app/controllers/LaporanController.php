@@ -11,6 +11,14 @@ class LaporanController extends \BaseController {
 	public function index()
 	{
 		//
+		$laporan = DB::table('laporan_kas_harian')
+        ->join('akun', 'laporan_kas_harian.akun_id', '=', 'akun.id')
+        ->select('laporan_kas_harian.no_bukti', 'laporan_kas_harian.tanggal', 'akun.no_akun', 'akun.nama_akun' , 'laporan_kas_harian.debet', 'laporan_kas_harian.kredit', 'laporan_kas_harian.keterangan')
+ 	    
+        ->get();
+
+       return View::make('listdata')->with('laporan', $laporan);
+
 	}
 
 
@@ -42,13 +50,20 @@ class LaporanController extends \BaseController {
 		if (Auth::check())
 		{
 			$laporan = new Laporan();
-			$laporan->no_bukti = Input::get('nobukti');
-			$laporan->tanggal = Input::get('tanggal');
-			$laporan->no_perk    = Input::get('noperk');
-			$laporan->kode_akun    = Input::get('akun');
-			$laporan->kredit  = Input::get('kredit');
-			$laporan->debet = Input::get('debet');
-			$laporan->keterangan  = Input::get('keterangan');
+			$laporan->no_bukti 		= Input::get('nobukti');
+			$laporan->tanggal		= Input::get('tanggal');
+
+			if ($laporan->debet = Input::get('debet')) {
+				# code...
+				$laporan->kredit = "";
+			}
+				else{
+					$laporan->kredit        = Input::get('kredit');
+				}
+			
+			$laporan->keterangan    = Input::get('keterangan');
+			// $laporan->no_akun       = Input::get('no_akun');
+			// $laporan->nama_akun     = Input::get('nama_akun');
 			
 			$laporan->save();
 
@@ -71,14 +86,11 @@ class LaporanController extends \BaseController {
 	 */
 	public function search()
 	{
-	$searchBy = Input::get('searchBy');
-    $kode_akun = Input::get('katakunci');
-    $searchResult = DB::table('laporan_kas_harian')->where($searchBy, 'LIKE', '%'.$kode_akun.'%')->get();
-
-    return View::make('listpencariandata')
-            ->with('searchBy', $searchBy)
-            ->with('kode_akun', $kode_akun)
-            ->with('searchResult', $searchResult);
+    $no_akun = Input::get('katakunci');
+    $datalaporan = DB::table('laporan_kas_harian')->where('no_akun', 'LIKE', '%'.$no_akun.'%')->get();
+    return View::make('listdata')
+            ->with('no_akun', $no_akun)
+            ->with('datalaporan',  $datalaporan );
         }
 
 
@@ -121,8 +133,8 @@ class LaporanController extends \BaseController {
 
   		$laporan->no_bukti = Input::get('nobukti');
 		$laporan->tanggal = Input::get('tanggal');
-		$laporan->no_perk    = Input::get('noperk');
-		$laporan->kode_akun    = Input::get('akun');
+		$laporan->no_akun    = Input::get('no_akun');
+		$laporan->nama_akun    = Input::get('nama_akun');
 		$laporan->kredit  = Input::get('kredit');
 		$laporan->debet = Input::get('debet');
 		$laporan->keterangan  = Input::get('keterangan');
@@ -158,7 +170,7 @@ class LaporanController extends \BaseController {
 		
 	if (Auth::check())
 	{
-		  $laporan = Laporan::select('no_bukti', 'tanggal', 'keterangan','no_perk','kredit','debet')->get();
+		  $laporan = Laporan::select('no_bukti', 'tanggal', 'keterangan','no_akun','nama_akun','kredit','debet')->get();
 		  Excel::create('Laporan Kas Harian', function($excel) use($laporan) {
 		    $excel->sheet('Sheet 1', function($sheet) use($laporan) {
 		        $sheet->fromArray($laporan);

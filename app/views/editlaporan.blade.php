@@ -26,18 +26,18 @@
 
 		 {{Form::label('tanggal', 'Tanggal') }}
 
-		 {{Form::text('tanggal', $laporan->tanggal, array('class' => 'form-control'))}}
+	 	<input name="tanggal" class="form-control date-picker" id="tanggal" data-date-format="yyyy-mm-dd" type="text" required="required" >
 
 		 {{Form::label('keterangan', 'Keterangan') }}
 
 		 {{Form::textarea('keterangan', $laporan->keterangan , array('class' => 'form-control'))}}
 
-		 {{Form::label('noperk', 'No Perkiraan') }}
+		 {{Form::label('no_akun', 'No Akun') }}
 
-		 {{Form::text('noperk', $laporan->no_perk , array('class' => 'form-control'))}}
+		 {{Form::text('no_akun', $laporan->no_perk , array('class' => 'form-control'))}}
 
-		 {{Form::label('akun', 'Kode Akun') }}
-		 {{Form::text('akun', $laporan->kode_akun , array('class' => 'form-control'))}}
+		 {{Form::label('nama_akun', 'Nama Akun') }}
+		 {{Form::text('nama_akun', $laporan->kode_akun , array('class' => 'form-control'))}}
 
 		 {{Form::label('debet', 'Debet') }}
 
